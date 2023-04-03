@@ -5,8 +5,8 @@ import random
 # turtle.colormode(255)
 tim = Turtle()
 tim.shape("triangle")
-# tim.pensize(10)
-# tim.speed(0)
+tim.pensize(10)
+tim.speed(0)
 colors = ["teal", "medium slate blue", "lime green", "firebrick", "yellow", "black", "rosy brown", "medium blue"]
 
 
@@ -32,19 +32,20 @@ colors = ["teal", "medium slate blue", "lime green", "firebrick", "yellow", "bla
 #     tim.pendown()
 
 # creating inscribed polygons  - from 3 to 10 sides - different random colors
-for i in range(3, 11):
-    angle = 360/i
-    tim.color(random.choice(colors))
-
-    for j in range(i):
-        tim.right(angle)
-        tim.forward(60)
-
-# for _ in range(200):
-#     angle = 90 * random.randint(1, 4)
+# for i in range(3, 11):
+#     angle = 360/i
 #     tim.color(random.choice(colors))
-#     tim.forward(30)
-#     tim.right(angle)
+
+#     for j in range(i):
+#         tim.right(angle)
+#         tim.forward(60)
+
+# creating a random walk - random direction - random colors
+for _ in range(200):
+    angle = 90 * random.randint(1, 4)
+    tim.color(random.choice(colors))
+    tim.forward(30)
+    tim.right(angle)
 
 # for _ in range(200):
 #     angle = 90 * random.randint(1, 4)
