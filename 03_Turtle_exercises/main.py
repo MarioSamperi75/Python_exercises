@@ -2,22 +2,19 @@ import turtle
 from turtle import Turtle, Screen
 import random
 
-# turtle.colormode(255)
+turtle.colormode(255)
 tim = Turtle()
 tim.shape("triangle")
 tim.pensize(10)
 tim.speed(0)
-colors = ["teal", "medium slate blue", "lime green", "firebrick", "yellow", "black", "rosy brown", "medium blue"]
+#colors = ["teal", "medium slate blue", "lime green", "firebrick", "yellow", "black", "rosy brown", "medium blue"]
 
-
-# def pick_random_color():
-#     r = random.randint(0,255)
-#     g = random.randint(0,255)
-#     b = random.randint(0, 255)
-
-#     random_color = (r, g, b)
-
-#     return random_color
+def pick_random_color():
+    r = random.randint(0,255)
+    g = random.randint(0,255)
+    b = random.randint(0, 255)
+    random_color = (r, g, b)
+    return random_color
 
 # Creating a square
 # for _ in range(4):
@@ -41,17 +38,17 @@ colors = ["teal", "medium slate blue", "lime green", "firebrick", "yellow", "bla
 #         tim.forward(60)
 
 # creating a random walk - random direction - random colors
-for _ in range(200):
-    angle = 90 * random.randint(1, 4)
-    tim.color(random.choice(colors))
-    tim.forward(30)
-    tim.right(angle)
-
 # for _ in range(200):
 #     angle = 90 * random.randint(1, 4)
-#     tim.color(pick_random_color())
+#     tim.color(random.choice(colors))
 #     tim.forward(30)
 #     tim.right(angle)
+
+for _ in range(200):
+    angle = 90 * random.randint(1, 4)
+    tim.color(pick_random_color())
+    tim.forward(30)
+    tim.right(angle)
 
 # for _ in range(100):
 #     tim.circle(100)
