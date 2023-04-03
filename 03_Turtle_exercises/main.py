@@ -5,7 +5,7 @@ import random
 turtle.colormode(255)
 tim = Turtle()
 tim.shape("triangle")
-tim.pensize(10)
+# tim.pensize(10)
 tim.speed(0)
 #colors = ["teal", "medium slate blue", "lime green", "firebrick", "yellow", "black", "rosy brown", "medium blue"]
 
@@ -44,16 +44,18 @@ def pick_random_color():
 #     tim.forward(30)
 #     tim.right(angle)
 
-for _ in range(200):
-    angle = 90 * random.randint(1, 4)
-    tim.color(pick_random_color())
-    tim.forward(30)
-    tim.right(angle)
-
-# for _ in range(100):
-#     tim.circle(100)
+# for _ in range(200):
+#     angle = 90 * random.randint(1, 4)
 #     tim.color(pick_random_color())
-#     tim.right(3.6)
+#     tim.forward(30)
+#     tim.right(angle)
+
+# Drawing a Spirograph - random color to each circle
+for _ in range(100):
+    tim.circle(100)
+    tim.color(pick_random_color())
+    tim.right(3.6)
+
 
 screen = Screen()
 screen.exitonclick()
