@@ -7,7 +7,7 @@ tim = Turtle()
 tim.shape("triangle")
 # tim.pensize(10)
 #tim.speed(0)
-colors = ["teal", "medium slate blue", "lime green", "firebrick", "yellow", "black", "rosy brown", "medium blue"]
+# colors = ["teal", "medium slate blue", "lime green", "firebrick", "yellow", "black", "rosy brown", "medium blue"]
 
 
 # def pick_random_color():
@@ -20,15 +20,16 @@ colors = ["teal", "medium slate blue", "lime green", "firebrick", "yellow", "bla
 #     return random_color
 
 # Creating a square
-for _ in range(4):
-    tim.forward(100)
-    tim.right(90)
+# for _ in range(4):
+#     tim.forward(100)
+#     tim.right(90)
 
-# for _ in range(30):
-#     tim.forward(5)
-#     tim.penup()
-#     tim.forward(5)
-#     tim.pendown()
+# Creating a dotted line
+for _ in range(30):
+    tim.forward(5)
+    tim.penup()
+    tim.forward(5)
+    tim.pendown()
 
 
 # for i in range(3, 11):
