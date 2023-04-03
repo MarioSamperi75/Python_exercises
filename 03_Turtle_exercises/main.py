@@ -6,8 +6,8 @@ import random
 tim = Turtle()
 tim.shape("triangle")
 # tim.pensize(10)
-#tim.speed(0)
-# colors = ["teal", "medium slate blue", "lime green", "firebrick", "yellow", "black", "rosy brown", "medium blue"]
+# tim.speed(0)
+colors = ["teal", "medium slate blue", "lime green", "firebrick", "yellow", "black", "rosy brown", "medium blue"]
 
 
 # def pick_random_color():
@@ -25,21 +25,20 @@ tim.shape("triangle")
 #     tim.right(90)
 
 # Creating a dotted line
-for _ in range(30):
-    tim.forward(5)
-    tim.penup()
-    tim.forward(5)
-    tim.pendown()
+# for _ in range(30):
+#     tim.forward(5)
+#     tim.penup()
+#     tim.forward(5)
+#     tim.pendown()
 
+# creating inscribed polygons  - from 3 to 10 sides - different random colors
+for i in range(3, 11):
+    angle = 360/i
+    tim.color(random.choice(colors))
 
-# for i in range(3, 11):
-#     angle = 360/i
-#     tim.color(random.choice(colors))
-
-
-#    for j in range(i):
-#         tim.right(angle)
-#         tim.forward(60)
+    for j in range(i):
+        tim.right(angle)
+        tim.forward(60)
 
 # for _ in range(200):
 #     angle = 90 * random.randint(1, 4)
