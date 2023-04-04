@@ -23,8 +23,17 @@ for color in colors:
     y_position += 40
     players.append(player)
 
+
 while is_game_on:
     for player in players:
         player.forward(random.randint(0, 10))
+        if player.xcor() > 220:
+            is_game_on = False
+            winner = player.pencolor()
+            if winner == user_bet:
+                print(f"You guessed! The winner is {winner} ")
+            else:
+                print(f"You did not guess! The winner was {winner}! ")
+
 
 screen.exitonclick()
