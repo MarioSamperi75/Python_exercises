@@ -22,9 +22,17 @@ for position in starting_positions:
 
 while game_is_on:
     screen.update()
-    for seg in segments:
-        seg.forward(20)
-        time.sleep(0.05)
+    # all the segments go on 1 position in the list
+    # starting with the last one
+    # just the first one change direction
+    for i in range(len(segments)-1, 0, -1):
+        new_x = segments[i-1].xcor()
+        new_y = segments[i-1].ycor()
+        segments[i].goto(new_x, new_y)
+    segments[0].left(90)
+    segments[0].forward(20)
+
+    time.sleep(0.1)
 
 
 screen.exitonclick()
