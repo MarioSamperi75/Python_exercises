@@ -15,11 +15,19 @@ class Snake:
 
     def create_snake(self):
         for position in STARTING_POSITIONS:
-            new_block = Turtle('square')
-            new_block.color("white", "white")
-            new_block.penup()
-            new_block.goto(position)
-            self.segments.append(new_block)
+            self.add_segment(position)
+
+    def add_segment(self, position):
+        new_block = Turtle('square')
+        new_block.color("white", "white")
+        new_block.penup()
+        new_block.goto(position)
+        self.segments.append(new_block)
+
+    def extend(self):
+        """adding a new segment in the position of the last one that is moving on"""
+        self.add_segment(self.segments[-1].position())
+
 
     def move(self):
         # all the segments go on 1 position in the list
