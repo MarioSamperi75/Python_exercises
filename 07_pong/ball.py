@@ -10,6 +10,10 @@ class Ball(Turtle):
         self.x_mov = 0.4
         self.y_mov = 0.4
 
+    def restart(self):
+        self.goto(0, 0)
+        self.bounce_paddle()
+
     def move(self):
         new_x = self.xcor() + self.x_mov
         new_y = self.ycor() + self.y_mov

@@ -31,6 +31,18 @@ while is_game_on:
         ball.bounce_wall()
     if ball.xcor() > 330 and ball.distance(player_r) < 50 or ball.xcor() < - 330 and ball.distance(player_l) < 50:
         ball.bounce_paddle()
+    if ball.xcor() > 380:
+        print("punto di Player Left!")
+        time.sleep(1)
+        ball.restart()
+
+    if ball.xcor() < -380:
+        print("punto di Player Right!")
+        time.sleep(1)
+        ball.restart()
+
     time.sleep(0.0005)
+
+
 
 screen.exitonclick()
