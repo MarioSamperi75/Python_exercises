@@ -9,13 +9,13 @@ class Ball(Turtle):
         self.penup()
         self.x_mov = 2
         self.y_mov = 2
-        self.speed = 0.01
+        self.boll_speed = 0.01
 
 
     def restart(self):
         self.goto(0, 0)
         self.bounce_paddle()
-        self.speed = 0.01
+        self.boll_speed = 0.01
 
 
     def move(self):
@@ -28,8 +28,8 @@ class Ball(Turtle):
 
     def bounce_paddle(self):
         self.x_mov *= -1
-        if self.speed > 0.001:
-            self.speed -= 0.0003
+        if self.boll_speed > 0.001:
+            self.boll_speed -= 0.0003
 
 
 

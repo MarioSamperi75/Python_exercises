@@ -31,7 +31,7 @@ while is_game_on:
 
     if ball.ycor() > 290 or ball.ycor() < -290:
         ball.bounce_wall()
-    if ball.xcor() > 330 and ball.distance(player_r) < 50 or ball.xcor() < - 330 and ball.distance(player_l) < 50:
+    if ball.xcor() > 340 and ball.distance(player_r) < 50 or ball.xcor() < - 340 and ball.distance(player_l) < 50:
         ball.bounce_paddle()
     if ball.xcor() > 380:
         scoreboard.l_point()
@@ -40,10 +40,10 @@ while is_game_on:
 
     if ball.xcor() < -380:
         scoreboard.r_point()
-        time.sleep(ball.speed)
+        time.sleep(ball.boll_speed)
         ball.restart()
 
-    time.sleep(ball.speed)
+    time.sleep(ball.boll_speed)
 
 
 screen.exitonclick()
