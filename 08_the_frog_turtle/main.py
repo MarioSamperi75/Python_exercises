@@ -31,5 +31,9 @@ game_is_on = True
 while game_is_on:
     car.move_car()
 
+    if player.is_winner():
+        scoreboard.level_up()
+        player.restart()
+
     time.sleep(0.1)
     screen.update()

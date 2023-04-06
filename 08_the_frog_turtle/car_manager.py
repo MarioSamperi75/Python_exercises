@@ -20,6 +20,6 @@ class CarManager(Turtle):
 
 
     def move_car(self):
-        self.setx(self.xcor() - MOVE_INCREMENT)
+        self.setx(self.xcor() - STARTING_MOVE_DISTANCE)
 
 
