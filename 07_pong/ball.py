@@ -7,12 +7,16 @@ class Ball(Turtle):
         self.shape('circle')
         self.color('darkred')
         self.penup()
-        self.x_mov = 0.4
-        self.y_mov = 0.4
+        self.x_mov = 2
+        self.y_mov = 2
+        self.speed = 0.01
+
 
     def restart(self):
         self.goto(0, 0)
         self.bounce_paddle()
+        self.speed = 0.01
+
 
     def move(self):
         new_x = self.xcor() + self.x_mov
@@ -24,6 +28,8 @@ class Ball(Turtle):
 
     def bounce_paddle(self):
         self.x_mov *= -1
+        if self.speed > 0.001:
+            self.speed -= 0.0003
 
 
 

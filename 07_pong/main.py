@@ -3,6 +3,8 @@ from turtle import Screen
 
 from ball import Ball
 from paddle import Paddle
+from scoreboard import Scoreboard
+
 
 screen = Screen()
 screen.setup(width=800, height=600)
@@ -11,7 +13,7 @@ screen.tracer(0)
 player_r = Paddle((350, 0))
 player_l = Paddle((-350, 0))
 ball = Ball()
-
+scoreboard = Scoreboard()
 
 
 screen.listen()
@@ -32,17 +34,16 @@ while is_game_on:
     if ball.xcor() > 330 and ball.distance(player_r) < 50 or ball.xcor() < - 330 and ball.distance(player_l) < 50:
         ball.bounce_paddle()
     if ball.xcor() > 380:
-        print("punto di Player Left!")
+        scoreboard.l_point()
         time.sleep(1)
         ball.restart()
 
     if ball.xcor() < -380:
-        print("punto di Player Right!")
-        time.sleep(1)
+        scoreboard.r_point()
+        time.sleep(ball.speed)
         ball.restart()
 
-    time.sleep(0.0005)
-
+    time.sleep(ball.speed)
 
 
 screen.exitonclick()
