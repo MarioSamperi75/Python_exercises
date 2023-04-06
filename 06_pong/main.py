@@ -22,13 +22,13 @@ screen.onkey(player_l.move_up, "w")
 screen.onkey(player_l.move_down, "s")
 
 is_game_on = True
-x_ball = 0
-y_ball = 0
+
 while is_game_on:
     screen.update()
     ball.move()
-    time.sleep(0.001)
 
-
+    if ball.ycor() > 290 or ball.ycor() < -290:
+        ball.bounce()
+    time.sleep(0.0005)
 
 screen.exitonclick()
