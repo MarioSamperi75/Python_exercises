@@ -34,6 +34,7 @@ while game_is_on:
     if player.is_winner():
         scoreboard.level_up()
         player.restart()
+        car.update_speed()
 
     time.sleep(0.1)
     screen.update()
