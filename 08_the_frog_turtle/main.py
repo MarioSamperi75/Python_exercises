@@ -29,12 +29,12 @@ screen.onkey(player.move, 'Up')
 
 game_is_on = True
 while game_is_on:
-    #car_manager.move_cars()
+    car_manager.move_cars()
 
     if player.is_winner():
         scoreboard.level_up()
         player.restart()
-        #car_manager.update_speed()
+        car_manager.update_speed()
 
     if random.randint(1, 10) > 8:
         car_manager.create_a_car()

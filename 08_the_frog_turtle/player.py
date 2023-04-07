@@ -10,7 +10,7 @@ class Player(Turtle):
         super().__init__()
         self.penup()
         self.shape('turtle')
-        self.color('black')
+        self.color('lightgreen')
         self.setheading(90)
         self.restart()
 
