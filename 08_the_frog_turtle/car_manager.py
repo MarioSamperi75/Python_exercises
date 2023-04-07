@@ -3,7 +3,7 @@ from turtle import Turtle
 
 COLORS = ["red", "orange", "yellow", "green", "blue", "purple"]
 STARTING_MOVE_DISTANCE = 5
-MOVE_INCREMENT = 5
+MOVE_INCREMENT = 2
 
 
 class CarManager:
@@ -11,6 +11,7 @@ class CarManager:
         super().__init__()
         self.cars = []
         self.car_speed = STARTING_MOVE_DISTANCE
+        self.freq_car = 10
 
     def create_a_car(self):
         new_car = Turtle()
@@ -27,8 +28,20 @@ class CarManager:
         for car in self.cars:
             car.setx(car.xcor() - self.car_speed)
 
+    def is_crashed(self, player):
+        for car in self.cars:
+            if player.distance(car) < 20:
+                return True
+        return False
+
+    def destroy_cars(self):
+        for car in self.cars:
+            if car.xcor() < -350:
+                self.cars.remove(car)
+
     def update_speed(self):
         self.car_speed += MOVE_INCREMENT
+        self.freq_car += 1
 
 
 
