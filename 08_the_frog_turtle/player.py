@@ -19,7 +19,7 @@ class Player(Turtle):
         self.forward(MOVE_DISTANCE)
 
     def restart(self):
-        self.goto(0, -280)
+        self.goto(STARTING_POSITION)
 
     def is_winner(self):
         if self.ycor() > FINISH_LINE_Y:

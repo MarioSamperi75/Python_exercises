@@ -36,8 +36,7 @@ while game_is_on:
         player.restart()
         car_manager.update_speed()
 
-    if random.randint(1, car_manager.freq_car) > 8:
-        car_manager.create_a_car()
+    car_manager.create_a_car()
 
     car_manager.destroy_cars()
     game_is_on = not car_manager.is_crashed(player)
