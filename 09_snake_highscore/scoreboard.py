@@ -33,9 +33,11 @@ class Scoreboard(Turtle):
         self.update_scoreboard()
 
     def read_high_score(self):
-        with open('data.txt') as file:
+        # "C:/Users/mario/OneDrive/Desktop/data.txt" - absolute path
+        with open("../../../../OneDrive/Desktop/data.txt") as file:
             self.high_score = int(file.read())
 
     def write_high_score(self, score):
-        with open('data.txt', mode="w") as file:
+        # "C:/Users/mario/OneDrive/Desktop/data.txt" -absolute path
+        with open("../../../../OneDrive/Desktop/data.txt", mode="w") as file:
             file.write(str(score))
