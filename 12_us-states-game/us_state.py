@@ -9,5 +9,5 @@ class USState(Turtle):
         self.color("black")
         self.penup()
         self.goto(x_coor, y_coor)
-        self.write(name, align="center", font=("Courier", 10, "normal"))
+        self.write(name, align="center", font=("Courier", 8, "normal"))
         self.hideturtle()

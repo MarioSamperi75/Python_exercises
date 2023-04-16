@@ -12,10 +12,10 @@ screen.addshape(image)
 turtle.shape(image)
 screen.tracer(0)
 
-state_series = data.state
+states = data.state.to_list()
 right_answers = []
-score = len(right_answers)
-states_nr = len(state_series)
+score = 0
+states_nr = len(states)
 
 screen.title("U.S. States Game")
 
@@ -33,14 +33,18 @@ while True:
     guess = textinput(title=f"{score}/{states_nr} Guess the State", prompt="What's another state's name?").title()
     # answer_state = string.capwords(turtle.textinput(title="Guess the State", prompt="What's another state's name?"))
 
-    if guess in state_series.unique() and guess not in right_answers:
+    if guess in states and guess not in right_answers:
         # get coordinates
-        row = data[state_series == guess]
-        x = int(row.x)
-        y = int(row.y)
+        row = data[data.state == guess]
+        # iloc[0] instead of get[0] to not have deprecation warning
+        x = int(row.x.iloc[0])
+        y = int(row.y.iloc[0])
 
         # updating list right answers
         right_answers.append(guess)
+
+        # updating score
+        score = len(right_answers)
 
         # write text in the map
         USState(guess, x, y)
