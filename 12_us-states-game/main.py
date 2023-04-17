@@ -33,6 +33,8 @@ while True:
     guess = textinput(title=f"{score}/{states_nr} Guess the State", prompt="What's another state's name?").title()
     # answer_state = string.capwords(turtle.textinput(title="Guess the State", prompt="What's another state's name?"))
 
+    if guess == "Exit":
+        break
     if guess in states and guess not in right_answers:
         # get coordinates
         row = data[data.state == guess]
@@ -49,5 +51,3 @@ while True:
         # write text in the map
         USState(guess, x, y)
 
-
-turtle.mainloop()
