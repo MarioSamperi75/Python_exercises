@@ -51,3 +51,17 @@ while True:
         # write text in the map
         USState(guess, x, y)
 
+
+missing_states = states
+for item in right_answers:
+    missing_states.remove(item)
+
+
+# alternative
+# missing_states = []
+# for state in states:
+#     if state not in right_answers:
+#         missing_states.append(state)
+
+df = pandas.DataFrame(missing_states)
+df.to_csv("missing.csv")
