@@ -52,9 +52,9 @@ while True:
         USState(guess, x, y)
 
 
-missing_states = states
-for item in right_answers:
-    missing_states.remove(item)
+# missing_states = states
+# for item in right_answers:
+#     missing_states.remove(item)
 
 
 # alternative
@@ -62,6 +62,8 @@ for item in right_answers:
 # for state in states:
 #     if state not in right_answers:
 #         missing_states.append(state)
+
+missing_states = [state for state in states if state not in right_answers]
 
 df = pandas.DataFrame(missing_states)
 df.to_csv("missing.csv")
