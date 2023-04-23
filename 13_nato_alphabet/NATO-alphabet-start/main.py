@@ -37,9 +37,7 @@ user_word = input("Choose a word: ")
 # for char in user_word:
 #     nato_list.append(nato_dict[char.upper()])
 
+
 # with list comprehension...
 nato_list = [nato_dict[char.upper()] for char in user_word]
-
-
-
 print(nato_list)
