@@ -14,21 +14,19 @@ my_label
 my_label.config(text='New Text2', background='yellow')
 # more commands? check https://tcl.tk/man/tcl8.6/TkCmd/label.htm
 
+
 def try_button_listener():
-    print("listener works")
-    my_label['text'] = "Button got clicked"
+    # print("listener works")
+    # my_label['text'] = "Button got clicked"
+    my_input = my_entry.get()
+    my_label['text'] = my_input
 
 
 my_button = Button(text="CLIKKA QUI", command=try_button_listener)
 my_button.pack()
 
-
-
-
-
-
-
-
+my_entry = Entry(width=10)
+my_entry.pack()
 
 
 windows.mainloop()
