@@ -10,13 +10,13 @@ WORK_MIN = 4
 SHORT_BREAK_MIN = 2
 LONG_BREAK_MIN = 10
 reps = 0
+checks = ""
 
 # ---------------------------- TIMER RESET ------------------------------- # 
 
 
 # ---------------------------- TIMER MECHANISM --------------------------- #
 def start():
-    global title_label
     global reps
     reps += 1
     if reps % 8 == 0:
@@ -30,9 +30,10 @@ def start():
         title_label.config(text="Break", fg=RED)
 
 
-
 # ---------------------------- COUNTDOWN MECHANISM ------------------------ #
 def count_down(count):
+    # global checks
+    marks = ""
     minutes = math.floor(count/60)
     seconds = count % 60
 
@@ -45,6 +46,14 @@ def count_down(count):
         windows.after(1000, count_down, count - 1)
     else:
         start()
+        # if reps % 2 == 0:
+        #    checks += "✔"
+        # check_label.config(text=checks)
+
+        # alternative
+        for _ in range(math.floor(reps / 2)):
+            marks += "✔"
+        check_label.config(text=marks)
 
 
 # ---------------------------- UI SETUP ------------------------------- #
@@ -69,7 +78,7 @@ start_btn.grid(row=2, column=0)
 reset_btn = Button(text="Reset")
 reset_btn.grid(row=2, column=2)
 
-check_label = Label(text="✔", bg=YELLOW, fg=GREEN)
+check_label = Label(text="", bg=YELLOW, fg=GREEN)
 check_label.grid(row=3, column=1)
 
 windows.mainloop()
