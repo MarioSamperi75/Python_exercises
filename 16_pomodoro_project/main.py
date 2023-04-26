@@ -23,7 +23,11 @@ def count_down(count):
     minutes = math.floor(count/60)
     seconds = count % 60
 
+    if seconds < 10:
+        seconds = f"0{seconds}"
+
     canvas.itemconfig(timer, text=f"{minutes}:{seconds}")
+
     if count > 0:
         windows.after(1000, count_down, count - 1)
 
