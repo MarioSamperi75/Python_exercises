@@ -11,15 +11,20 @@ def save():
     username = username_entry.get()
     password = password_entry.get()
 
+    is_valid = len(website) > 0 and len(username) > 0 and len(password) > 0
     # messagebox.showinfo(title="La Divina Commedia", message="Nel mezzo del cammin di nostra vita...")
-    is_ok = messagebox.askokcancel(title=website, message=f"These are the details entered?\n"
-                                                          f"Email: {username}\n"
-                                                          f"Password: {password}\n"
-                                                          f"Do you really want to save?")
-    if is_ok:
-        f = open("data.txt", "a")
-        f.write(f"{website} | {username} | {password}\n")
-        f.close()
+
+    if not is_valid:
+        messagebox.showinfo(title="Oops", message="Please don't leave any fields empty!")
+    else:
+        is_ok = messagebox.askokcancel(title=website, message=f"These are the details entered?\n"
+                                                              f"Email: {username}\n"
+                                                              f"Password: {password}\n"
+                                                              f"Do you really want to save?")
+        if is_ok:
+            f = open("data.txt", "a")
+            f.write(f"{website} | {username} | {password}\n")
+            f.close()
 
     website_entry.delete(0, END)
     password_entry.delete(0, END)
