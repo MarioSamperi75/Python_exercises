@@ -1,19 +1,28 @@
 from tkinter import *
+from tkinter import messagebox
+
 
 # ---------------------------- PASSWORD GENERATOR ------------------------------- #
 
 # ---------------------------- SAVE PASSWORD ------------------------------- #
 
 def save():
-    f = open("data.txt", "a")
-    f.write(f"{website_entry.get()} | {username_entry.get()} | {password_entry.get()}\n")
-    f.close()
+    website = website_entry.get()
+    username = username_entry.get()
+    password = password_entry.get()
+
+    # messagebox.showinfo(title="La Divina Commedia", message="Nel mezzo del cammin di nostra vita...")
+    is_ok = messagebox.askokcancel(title=website, message=f"These are the details entered?\n"
+                                                          f"Email: {username}\n"
+                                                          f"Password: {password}\n"
+                                                          f"Do you really want to save?")
+    if is_ok:
+        f = open("data.txt", "a")
+        f.write(f"{website} | {username} | {password}\n")
+        f.close()
 
     website_entry.delete(0, END)
     password_entry.delete(0, END)
-
-
-
 
 
 # ---------------------------- UI SETUP ------------------------------- #
@@ -48,11 +57,4 @@ password_btn.grid(row=3, column=2)
 add_button = Button(text="Add", width=44, command=save)
 add_button.grid(row=4, column=1, columnspan=2)
 
-
-
-
-
-
-
 windows.mainloop()
-
