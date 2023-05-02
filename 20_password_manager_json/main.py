@@ -54,21 +54,19 @@ def save():
     if not is_valid:
         messagebox.showinfo(title="Oops", message="Please don't leave any fields empty!")
     else:
-        # Deserialization
-        f = open("data.json", "r")
-        data = json.load(f)
+        try:
+            with open("data.json", "r") as data_file:
+                data = json.load(data_file)
+        except (FileNotFoundError, json.decoder.JSONDecodeError):
+            data = new_data
+        else:
+            data.update(new_data)
+        finally:
+            with open("data.json", "w") as data_file:
+                json.dump(data, data_file, indent=4)
 
-        # updating
-        data.update(new_data)
-
-        # Serialization
-        f = open("data.json", "w")
-        json.dump(data, f, indent=4)
-
-        f.close()
-
-    website_entry.delete(0, END)
-    password_entry.delete(0, END)
+            website_entry.delete(0, END)
+            password_entry.delete(0, END)
 
 
 # ---------------------------- UI SETUP ------------------------------- #
