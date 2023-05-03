@@ -78,12 +78,11 @@ def search():
         messagebox.showinfo(title="Error", message="No Data File Found")
     else:
         if website not in data:
-             messagebox.showinfo(title="Error", message="No details for the website exists")
+            messagebox.showinfo(title="Error", message="No details for the website exists")
         else:
-            for (key, value) in data.items():
-                if website == key:
-                    messagebox.showinfo(title=key, message=f"email : {value['email']}\n"
-                                                           f"password: {value['password']}")
+            email = data[website]["email"]
+            password = data[website]['password']
+            messagebox.showinfo(title=website, message=f"email : {email}\npassword: {password}")
 
 
 # ---------------------------- UI SETUP ------------------------------- #
