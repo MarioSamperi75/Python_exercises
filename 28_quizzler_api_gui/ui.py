@@ -34,11 +34,26 @@ class QuizInterface:
         self.windows.mainloop()
 
     def get_next_question(self):
+        self.canvas.config(bg="white")
+        self.score_label.config(text=f"Score: {self.quiz.score}")
         q_text = self.quiz.next_question()
         self.canvas.itemconfig(self.question_text, text=q_text)
 
     def on_true_click(self):
-        self.quiz.check_answer("True")
+        is_right = self.quiz.check_answer("True")
+        self.give_feedback(is_right)
 
     def on_false_click(self):
-        self.quiz.check_answer("False")
+        is_right = self.quiz.check_answer("False")
+        self.give_feedback(is_right)
+
+    def give_feedback(self, is_right):
+        if is_right:
+            self.canvas.config(bg="green")
+        else:
+            self.canvas.config(bg="red")
+        self.windows.after(1000, self.get_next_question)
+
+
+
+
