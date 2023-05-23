@@ -34,13 +34,15 @@ class QuizInterface:
         self.windows.mainloop()
 
     def get_next_question(self):
+        self.canvas.config(bg="white")
         if self.quiz.still_has_questions():
-            self.canvas.config(bg="white")
             self.score_label.config(text=f"Score: {self.quiz.score}")
             q_text = self.quiz.next_question()
             self.canvas.itemconfig(self.question_text, text=q_text)
         else:
             self.canvas.itemconfig(self.question_text, text="GAME OVER")
+            self.true_btn.config(state="disabled")
+            self.false_btn.config(state="disabled")
 
     def on_true_click(self):
         is_right = self.quiz.check_answer("True")
