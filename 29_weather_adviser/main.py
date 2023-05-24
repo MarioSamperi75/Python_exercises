@@ -19,8 +19,9 @@ response = requests.get(url=url, params=weather_params)
 response.raise_for_status()
 weather_data = response.json()
 
-for i in range(12):
-    condition_code = weather_data['hourly'][i]['weather'][0]['id']
+weather_12h = weather_data['hourly'][:12]
+for hour in weather_12h:
+    condition_code = hour['weather'][0]['id']
 
     if condition_code < 700:
         print("Prendi l'ombrello")
