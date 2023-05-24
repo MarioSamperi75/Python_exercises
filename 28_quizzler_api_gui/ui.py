@@ -35,8 +35,9 @@ class QuizInterface:
 
     def get_next_question(self):
         self.canvas.config(bg="white")
+        self.score_label.config(text=f"Score: {self.quiz.score}")
+        self.change_buttons_states(ACTIVE)
         if self.quiz.still_has_questions():
-            self.score_label.config(text=f"Score: {self.quiz.score}")
             q_text = self.quiz.next_question()
             self.canvas.itemconfig(self.question_text, text=q_text)
         else:
@@ -47,10 +48,12 @@ class QuizInterface:
     def on_true_click(self):
         is_right = self.quiz.check_answer("True")
         self.give_feedback(is_right)
+        self.change_buttons_states(DISABLED)
 
     def on_false_click(self):
         is_right = self.quiz.check_answer("False")
         self.give_feedback(is_right)
+        self.change_buttons_states(DISABLED)
 
     def give_feedback(self, is_right):
         if is_right:
@@ -58,6 +61,10 @@ class QuizInterface:
         else:
             self.canvas.config(bg="red")
         self.windows.after(1000, self.get_next_question)
+
+    def change_buttons_states(self, state: str):
+        self.true_btn.config(state=state)
+        self.false_btn.config(state=state)
 
 
 
