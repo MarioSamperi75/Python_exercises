@@ -1,3 +1,4 @@
+from datetime import datetime
 import os
 from dotenv import load_dotenv
 import requests
@@ -39,13 +40,23 @@ headers = {
 
 post_pixel_endpoint = f"{pixela_endpoint}/{USERNAME}/graphs/{graph_id}"
 
+today = datetime.now()
+#today = datetime(year=2023, month=6, day=2 )
+
+
 post_pixel_config = {
-    "date": "20230422",
+    "date": today.strftime("%Y-%m-%d"),
     "quantity": "15",
 }
 
-response = requests.post(url=post_pixel_endpoint, headers=headers, json=post_pixel_config)
+print(post_pixel_config['date'])
 
 
-print(response.text)
+
+
+
+#response = requests.post(url=post_pixel_endpoint, headers=headers, json=post_pixel_config)
+
+
+#print(response.text)
 
